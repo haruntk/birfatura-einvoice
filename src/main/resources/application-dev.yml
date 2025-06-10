@@ -1,0 +1,14 @@
+spring:
+  datasource:
+	url: jdbc:postgresql://localhost:5432/db-name
+	username: username
+	password: password
+		
+efatura:
+  api:
+    url: https://test1.edonustur.com
+    key: your-api-key
+  secret:
+    key: your-secret-key
+  integration:
+    key: your-integration-key
