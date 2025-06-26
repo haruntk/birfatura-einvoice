@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.htk.e_invoice_integration.dto.InvoiceDTO;
 import com.htk.e_invoice_integration.dto.InvoiceRequestDTO;
+import com.htk.e_invoice_integration.dto.InvoiceResponseDTO;
 import com.htk.e_invoice_integration.integration.birfatura.service.BirFaturaService;
 import com.htk.e_invoice_integration.mapper.InvoiceMapper;
 
@@ -19,8 +20,9 @@ public class InvoiceService {
 	
 	public InvoiceDTO createInvoice(InvoiceDTO invoiceDto) {
 		InvoiceRequestDTO requestDto = mapper.toInvoiceRequest(invoiceDto);
-		birFaturaService.sendInvoice(requestDto);
-		return invoiceDto;
+		InvoiceResponseDTO invoiceResponse = birFaturaService.sendInvoice(requestDto);
+		InvoiceDTO responseInvoiceDto = mapper.toInvoiceDTO(invoiceResponse);
+		return responseInvoiceDto;
 	}
 
 }

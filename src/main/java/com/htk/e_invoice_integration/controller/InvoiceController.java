@@ -19,8 +19,8 @@ public class InvoiceController {
 	
 	@PostMapping("sendDocument")
 	public ResponseEntity<InvoiceDTO> sendDocument(@RequestBody InvoiceDTO invoiceDto) {
-		invoiceService.createInvoice(invoiceDto);
-		return ResponseEntity.ok(invoiceDto);
+		InvoiceDTO response = invoiceService.createInvoice(invoiceDto);
+		return ResponseEntity.ok(response);
 	}
 
 }
